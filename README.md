@@ -5,6 +5,8 @@ This an app made by following the tutorial from "CodeWithChris" https://www.yout
 
 You can follow his tutorial to learn how to build an app from scratch
 
+Basic logic of the app is the one with the bigger card gets a point and if there is a tie no one gets any points
+
 Some of the previews and Screenshots from the working app that I made:
 
 <img width="438" alt="Screenshot 2023-10-15 at 6 11 54 PM" src="https://github.com/Adya10/warcardgameapp/assets/82889880/e0c27296-5c8d-48d0-96b2-823b57928872">
