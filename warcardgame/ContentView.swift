@@ -8,7 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var playercard = "back"
+    @State var cpucard = "back"
+    
+    @State var playerscore = 0
+    @State var cpuscore = 0
+    
     var body: some View {
+        
         ZStack {
             
             Image("background-wood-grain")
@@ -22,13 +30,20 @@ struct ContentView: View {
                 
                 HStack{
                     Spacer()
-                    Image("card2")
+                    Image(playercard)
                     Spacer()
-                    Image("card3")
+                    Image(cpucard)
                     Spacer()
                 }
                 Spacer()
-                Image("button")
+                
+                Button {
+                    deal()
+                } label: {
+                    Image("button")
+                }
+
+                
                 Spacer()
                 HStack{
                     Spacer()
@@ -36,7 +51,7 @@ struct ContentView: View {
                         Text("Player")
                             .font(.headline)
                             .padding(.bottom, 10.0)
-                        Text("0")
+                        Text(String(playerscore))
                             .font(.largeTitle)
                     }
                     Spacer()
@@ -44,7 +59,7 @@ struct ContentView: View {
                         Text("CPU")
                             .font(.headline)
                             .padding(.bottom, 10.0)
-                        Text("0")
+                        Text(String(cpuscore))
                             .font(.largeTitle)
                     }
                     Spacer()
@@ -52,6 +67,26 @@ struct ContentView: View {
                 .foregroundStyle(.white)
                 Spacer()
             }
+        }
+    }
+    func deal(){
+        // Randomise player card
+        var randomplayer = Int.random(in: 2...14)
+        playercard = "card" + String(randomplayer)
+        
+        // Randomise cpu card
+        var randomcpu = Int.random(in: 2...14)
+        cpucard = "card" + String(randomcpu)
+        
+        //update the score
+        if randomplayer > randomcpu {
+            playerscore += 1
+        }
+        else if randomplayer < randomcpu {
+            cpuscore += 1
+        }
+        else {
+            
         }
     }
 }
